@@ -2,7 +2,6 @@ import React from "react";
 import { UserContext } from "../../UserContext";
 import styles from "./UserHeaderNav.module.css";
 import { ReactComponent as Feed } from "../../Assets/feed.svg";
-import { ReactComponent as Stats } from "../../Assets/estatisticas.svg";
 import { ReactComponent as Post } from "../../Assets/adicionar.svg";
 import { ReactComponent as Logout } from "../../Assets/sair.svg";
 import { NavLink, useLocation } from "react-router-dom";
@@ -41,14 +40,6 @@ const UserHeaderNav = () => {
         >
           <Feed />
           {mobile && "Minhas fotos"}
-        </NavLink>
-
-        <NavLink
-          to="/my-account/stats"
-          className={(navData) => (navData.isActive ? styles.active : "")}
-        >
-          <Stats />
-          {mobile && "Estatísticas"}
         </NavLink>
 
         <NavLink
