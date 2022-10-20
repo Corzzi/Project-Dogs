@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
-import useInfiniteScroll from "../Hooks/useInfiniteScroll";
-import FeedModal from "./FeedModal/index";
-import FeedPhotos from "./FeedPhotos/index";
+import useInfiniteScroll from "../../Hooks/useInfiniteScroll";
+import FeedModal from "../FeedModal/index";
+import FeedPhotos from "../FeedPhotos/index";
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);

@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Error from "../../Helper/Error/Error";
-import Head from "../../Helper/Head/Head";
+import Error from "../../Helper/Error/index";
+import Head from "../../Helper/Head/index";
 import useForm from "../../Hooks/useForm";
 import { UserContext } from "../../UserContext";
-import Button from "../Form/Button/Button";
-import Input from "../Form/Input/Input";
+import Button from "../Form/Button/index";
+import Input from "../Form/Input/index";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {

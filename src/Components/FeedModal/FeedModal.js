@@ -1,9 +1,9 @@
 import React from "react";
 import { GET_PHOTO_MODAL } from "../../api";
-import Error from "../../Helper/Error/Error";
-import Loading from "../../Helper/Loading/Loading";
+import Error from "../../Helper/Error/index";
+import Loading from "../../Helper/Loading/index";
 import useFetch from "../../Hooks/useFetch";
-import Button from "../Form/Button";
+import Button from "../Form/Button/index";
 import PhotoContent from "../PhotoContent/index";
 import styles from "./FeedModal.module.css";
 

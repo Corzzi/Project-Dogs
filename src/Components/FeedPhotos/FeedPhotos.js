@@ -1,6 +1,6 @@
 import React from "react";
-import Error from "../../Helper/Error/Error";
-import Loading from "../../Helper/Loading/Loading";
+import Error from "../../Helper/Error/index";
+import Loading from "../../Helper/Loading/index";
 import { usePhotosQuery } from "../../Queries/usePhotosQuery";
 import { PAGE_SIZE } from "../../Utils/constants";
 import FeedPhotosItem from "../FeedPhotosItem/index";

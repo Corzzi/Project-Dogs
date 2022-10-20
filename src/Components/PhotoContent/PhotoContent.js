@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Image from "../../Helper/Image";
+import Image from "../../Helper/Image/index";
 import { UserContext } from "../../UserContext";
 import PhotoComments from "../PhotoComments/index";
 import PhotoDelete from "../PhotoDelete/index";

@@ -18,7 +18,6 @@ export default function useQuery(key, fetchFn) {
       } catch (err) {
         json = null;
         setError(err.message);
-        console.log(err.message);
       } finally {
         setLoading(false);
         setData(json);
@@ -29,5 +28,5 @@ export default function useQuery(key, fetchFn) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
-  return { data, loading, error }
+  return { data, loading, error };
 }

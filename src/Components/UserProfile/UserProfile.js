@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Head from "../../Helper/Head";
-import Feed from "../Feed";
+import Feed from "../Feed/index";
 
 const UserProfile = () => {
   const { user } = useParams();

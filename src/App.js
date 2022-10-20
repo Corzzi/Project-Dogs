@@ -2,12 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer/index";
 import Header from "./Components/Header/index";
-import Home from "./Components/Home";
-import Login from "./Components/Login";
-import NotFound from "./Components/NotFound";
-import Photo from "./Components/Photo";
-import User from "./Components/User";
-import UserProfile from "./Components/UserProfile";
+import Home from "./Components/Home/index";
+import Login from "./Components/Login/index";
+import NotFound from "./Components/NotFound/index";
+import Photo from "./Components/Photo/index";
+import User from "./Components/User/index";
+import UserProfile from "./Components/UserProfile/index";
 import ProtectedRoute from "./Helper/ProtectedRoute";
 import { UserStorage } from "./UserContext";
 

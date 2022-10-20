@@ -1,5 +1,5 @@
 import React from "react";
-import Head from "../Helper/Head/Head";
+import Head from "../../Helper/Head/index";
 
 const NotFound = () => {
   return (

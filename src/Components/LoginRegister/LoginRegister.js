@@ -1,12 +1,12 @@
 import React from "react";
 import { USER_POST } from "../../api";
-import Error from "../../Helper/Error/Error";
-import Head from "../../Helper/Head/Head";
+import Error from "../../Helper/Error/index";
+import Head from "../../Helper/Head/index";
 import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
 import { UserContext } from "../../UserContext";
-import Button from "../Form/Button";
-import Input from "../Form/Input";
+import Button from "../Form/Button/index";
+import Input from "../Form/Input/index";
 
 const LoginRegister = () => {
   const username = useForm();

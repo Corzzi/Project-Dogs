@@ -1,11 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { PHOTO } from "../api";
-import Error from "../Helper/Error/Error";
-import Head from "../Helper/Head/Head";
-import Loading from "../Helper/Loading/Loading";
-import useFetch from "../Hooks/useFetch";
-import PhotoContent from "./PhotoContent/index";
+import { PHOTO } from "../../api";
+import Error from "../../Helper/Error/index";
+import Head from "../../Helper/Head/index";
+import Loading from "../../Helper/Loading/index";
+import useFetch from "../../Hooks/useFetch";
+import PhotoContent from "../PhotoContent/index";
 
 const Photo = () => {
   const { id } = useParams();
