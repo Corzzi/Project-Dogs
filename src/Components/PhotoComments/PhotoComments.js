@@ -12,6 +12,10 @@ const PhotoComments = (props) => {
     commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
   }, [comments]);
 
+  function handleSendComment(comment) {
+    setComments([...comments, comment]);
+  }
+
   return (
     <>
       <ul
@@ -31,7 +35,7 @@ const PhotoComments = (props) => {
         <PhotoCommentsForm
           single={props.single}
           id={props.id}
-          setComments={setComments}
+          onSendComment={handleSendComment}
         />
       )}
     </>

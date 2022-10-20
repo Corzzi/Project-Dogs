@@ -5,7 +5,7 @@ import Error from "../../Helper/Error";
 import useFetch from "../../Hooks/useFetch";
 import styles from "./PhotoCommentsForm.module.css";
 
-const PhotoCommentsForm = ({ id, setComments, single }) => {
+const PhotoCommentsForm = ({ id, onSendComment, single }) => {
   const [comment, setComment] = React.useState("");
   const { request, error } = useFetch();
 
@@ -16,7 +16,7 @@ const PhotoCommentsForm = ({ id, setComments, single }) => {
     const { response, json } = await request(url, options);
     if (response.ok) {
       setComment("");
-      setComments((comments) => [...comments, json]);
+      onSendComment(json);
     }
   }
 
