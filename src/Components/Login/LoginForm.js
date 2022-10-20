@@ -1,13 +1,12 @@
-import Button from "../Form/Button";
 import React from "react";
 import { Link } from "react-router-dom";
-import Input from "../Form/Input";
+import Error from "../../Helper/Error";
+import Head from "../../Helper/Head";
 import useForm from "../../Hooks/useForm";
 import { UserContext } from "../../UserContext";
-import Error from "../../Helper/Error";
+import Button from "../Form/Button";
+import Input from "../Form/Input";
 import styles from "./LoginForm.module.css";
-import stylesBtn from "../Form/Button.module.css";
-import Head from "../../Helper/Head";
 
 const LoginForm = () => {
   const { loginUser, loading, error } = React.useContext(UserContext);
@@ -42,8 +41,10 @@ const LoginForm = () => {
       <div className={styles.register}>
         <h2 className={styles.subtitle}>Cadastre-se</h2>
         <p>Ainda não possui conta? Cadastre-se no site.</p>
-        <Link className={stylesBtn.button} to="/login/register">
-          Cadastre-se
+        <Link to="/login/register">
+          <Button>
+            Cadastre-se
+          </Button>
         </Link>
       </div>
     </section>
