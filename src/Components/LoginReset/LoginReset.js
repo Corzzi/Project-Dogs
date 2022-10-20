@@ -32,7 +32,7 @@ const LoginReset = () => {
         password: password.value,
       });
       const { response } = await request(url, options);
-      if (response.ok) navigate("/Dogs-Projeto/login");
+      if (response.ok) navigate("/login");
     }
   }
 
