@@ -1,19 +1,16 @@
 import React from "react";
-import { GET_PHOTO_MODAL } from "../../api";
 import Error from "../../Helper/Error/index";
 import Loading from "../../Helper/Loading/index";
-import useFetch from "../../Hooks/useFetch";
+import { usePhotoModal } from "../../Queries/usePhotoModal";
 import Button from "../Form/Button/index";
 import PhotoContent from "../PhotoContent/index";
 import styles from "./FeedModal.module.css";
 
 const FeedModal = ({ photo, onClose }) => {
-  const { data, loading, error, request } = useFetch();
-
-  React.useEffect(() => {
-    const { url, options } = GET_PHOTO_MODAL(photo.id);
-    request(url, options);
-  }, [photo, request]);
+  const photoModal = usePhotoModal(photo);
+  console.log(photoModal);
+  const { data, loading, error } = photoModal;
+  console.log(data);
 
   function handleOutsideClick(event) {
     if (event.target === event.currentTarget) onClose();
