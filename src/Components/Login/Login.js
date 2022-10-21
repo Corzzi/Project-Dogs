@@ -19,7 +19,7 @@ const Login = () => {
           <Route path="/" element={<LoginForm />} />
           <Route path="register" element={<LoginRegister />} />
           <Route path="forgot" element={<LoginForgot />} />
-          <Route path="reset" element={<LoginReset />} />
+          <Route path="reset/*" element={<LoginReset />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

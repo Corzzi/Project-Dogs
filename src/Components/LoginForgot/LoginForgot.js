@@ -12,10 +12,8 @@ const LoginForgot = () => {
   const { data, loading, error, request } = useFetch();
 
   async function handleSubmit(event) {
-    console.log(window.location.href);
     event.preventDefault();
 
-    console.log(window.location.href);
     const { url, options } = FORGOT_PASSWORD({
       login: login.value,
       url: window.location.href.replace("forgot", "reset"),

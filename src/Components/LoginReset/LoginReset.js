@@ -5,23 +5,15 @@ import Error from "../../Helper/Error/Error";
 import Head from "../../Helper/Head/Head";
 import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
+import useSearchParams from "../../Hooks/useSearchParams";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
 
 const LoginReset = () => {
-  const [login, setLogin] = React.useState("");
-  const [key, setKey] = React.useState("");
+  const { login, key } = useSearchParams();
   const password = useForm("password");
   const { loading, error, request } = useFetch();
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const key = params.get("key");
-    const login = params.get("login");
-    if (key) setKey(key);
-    if (login) setLogin(login);
-  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
