@@ -1,12 +1,12 @@
 import React from "react";
 import Error from "../../Helper/Error/index";
 import Loading from "../../Helper/Loading/index";
-import { usePhotoModal } from "../../Queries/usePhotoModal";
+import { usePhotoModalQuery } from "../../Queries/usePhotoModalQuery";
 import PhotoContent from "../PhotoContent/index";
 import styles from "./FeedModal.module.css";
 
 const FeedModal = ({ photo, onClose }) => {
-  const photoModal = usePhotoModal(photo);
+  const photoModal = usePhotoModalQuery(photo);
   const { data, loading, error } = photoModal;
 
   function handleOutsideClick(event) {
