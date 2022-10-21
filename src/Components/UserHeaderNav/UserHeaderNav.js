@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import { ReactComponent as Post } from "../../Assets/adicionar.svg";
 import { ReactComponent as Feed } from "../../Assets/feed.svg";
 import { ReactComponent as Logout } from "../../Assets/sair.svg";
-import Navlink from "../../Helper/Navlink/Navlink";
 import useMedia from "../../Hooks/useMedia";
 import { UserContext } from "../../UserContext";
+import Navlink from "../Header/Navlink";
 import styles from "./UserHeaderNav.module.css";
 
 const UserHeaderNav = () => {
