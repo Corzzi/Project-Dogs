@@ -13,18 +13,6 @@ export function TOKEN_POST(body) {
   };
 }
 
-export function GET_USER(token) {
-  return {
-    url: API_URL + "api/user",
-    options: {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    },
-  };
-}
-
 export function TOKEN_VALIDATE_TOKEN(token) {
   return {
     url: API_URL + "jwt-auth/v1/token/validate",
@@ -59,26 +47,6 @@ export function POST_PHOTO(formData, token) {
         Authorization: "Bearer " + token,
       },
       body: formData,
-    },
-  };
-}
-
-export function GET_PHOTOS({ page, total, user }) {
-  return {
-    url: API_URL + `api/photo/?_page=${page}&_total=${total}&_user=${user}`,
-    options: {
-      method: "GET",
-      cache: "no-store",
-    },
-  };
-}
-
-export function GET_PHOTO_MODAL(id) {
-  return {
-    url: API_URL + `api/photo/${id}`,
-    options: {
-      method: "GET",
-      cache: "no-store",
     },
   };
 }
