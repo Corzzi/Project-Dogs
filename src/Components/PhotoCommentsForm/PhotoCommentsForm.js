@@ -16,7 +16,7 @@ const PhotoCommentsForm = ({ id, onSendComment, single }) => {
     const { response, json } = await request(url, options);
     if (response.ok) {
       setComment("");
-      onSendComment(json);
+      onSendComment(json); // Tarefa 2
     }
   }
 
