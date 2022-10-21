@@ -9,7 +9,7 @@ import styles from "./FeedPhotos.module.css";
 const FeedPhotos = ({ page, user, onClickPhoto, onHasMore }) => {
   const a = usePhotosQuery({ page, user });
   const { data, error } = a;
-  console.log(a); // Vem da própria api?
+  // Vem da própria api?
 
   React.useEffect(() => {
     if (data && data.length < PAGE_SIZE) {

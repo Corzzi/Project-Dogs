@@ -7,9 +7,7 @@ import styles from "./FeedModal.module.css";
 
 const FeedModal = ({ photo, onClose }) => {
   const photoModal = usePhotoModal(photo);
-  console.log(photoModal);
   const { data, loading, error } = photoModal;
-  console.log(data);
 
   function handleOutsideClick(event) {
     if (event.target === event.currentTarget) onClose();
