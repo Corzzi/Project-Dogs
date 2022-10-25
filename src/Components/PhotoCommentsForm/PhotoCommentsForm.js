@@ -1,19 +1,16 @@
 import React from "react";
-import { POST_COMMENT } from "../../api";
 import { ReactComponent as Send } from "../../Assets/enviar.svg";
 import Error from "../../Helper/Error/index";
-import useFetch from "../../Hooks/useFetch";
+import { usePostCommentMutate } from "../../Mutations/usePostCommentMutate";
 import styles from "./PhotoCommentsForm.module.css";
 
 const PhotoCommentsForm = ({ id, onSendComment, single }) => {
   const [comment, setComment] = React.useState("");
-  const { request, error } = useFetch();
+  const { error, post } = usePostCommentMutate(id, { comment });
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const token = window.localStorage.getItem("token");
-    const { url, options } = POST_COMMENT(id, token, { comment });
-    const { response, json } = await request(url, options);
+    const { response, json } = await post();
     if (response.ok) {
       setComment("");
       onSendComment(json); // Tarefa 2

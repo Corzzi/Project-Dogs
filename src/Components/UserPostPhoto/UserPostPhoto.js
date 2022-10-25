@@ -1,39 +1,35 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { POST_PHOTO } from "../../api";
 import Error from "../../Helper/Error/Error";
 import Head from "../../Helper/Head/Head";
-import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
+import { usePostPhotoMutate } from "../../Mutations/usePostPhotoMutate";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
 import styles from "./UserPostPhoto.module.css";
 
 const UserPostPhoto = () => {
+  const formData = new FormData();
   const name = useForm();
   const weight = useForm("number");
   const age = useForm("number");
-
   const [img, setImg] = React.useState({});
-  const { data, loading, error, request } = useFetch();
   const navigate = useNavigate();
+  const { data, loading, error, post } = usePostPhotoMutate(formData);
 
   React.useEffect(() => {
     if (data) navigate("/my-account");
   }, [data, navigate]);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    const formData = new FormData();
     formData.append("img", img.raw);
     formData.append("nome", name.value);
     formData.append("peso", weight.value);
     formData.append("idade", age.value);
 
-    const token = window.localStorage.getItem("token");
-    const { url, options } = POST_PHOTO(formData, token);
-    request(url, options);
+    post();
   }
 
   function handleImgChange({ target }) {

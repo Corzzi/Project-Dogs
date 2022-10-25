@@ -1,29 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { RESET_PASSWORD } from "../../api";
 import Error from "../../Helper/Error/Error";
 import Head from "../../Helper/Head/Head";
-import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
 import useSearchParams from "../../Hooks/useSearchParams";
+import { useResetPasswordMutate } from "../../Mutations/useResetPasswordMutate";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
 
 const LoginReset = () => {
   const { login, key } = useSearchParams();
   const password = useForm("password");
-  const { loading, error, request } = useFetch();
+  const { loading, error, post } = useResetPasswordMutate({
+    login,
+    key,
+    password: password.value,
+  });
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
     if (password.validate()) {
-      const { url, options } = RESET_PASSWORD({
-        login,
-        key,
-        password: password.value,
-      });
-      const { response } = await request(url, options);
+      const { response } = await post();
       if (response.ok) navigate("/login");
     }
   }

@@ -1,18 +1,15 @@
 import React from "react";
-import { DELETE_PHOTO } from "../../api";
-import useFetch from "../../Hooks/useFetch";
+import { useDeletePhotoMutate } from "../../Mutations/useDeletePhotoMutate";
 import styles from "./PhotoDelete.module.css";
 
 const PhotoDelete = ({ id }) => {
-  const { loading, request } = useFetch();
+  const { loading, post } = useDeletePhotoMutate(id);
 
   async function handleClick() {
     const confirm = window.confirm("Deseja realmente deletar a publicação");
 
     if (confirm) {
-      const token = window.localStorage.getItem("token");
-      const { url, options } = DELETE_PHOTO(id, token);
-      const { response } = await request(url, options);
+      const { response } = await post();
       if (response.ok) window.location.reload();
     }
   }

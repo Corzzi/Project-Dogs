@@ -1,9 +1,8 @@
 import React from "react";
-import { USER_POST } from "../../api";
 import Error from "../../Helper/Error/index";
 import Head from "../../Helper/Head/index";
-import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
+import { useRegisterUserMutate } from "../../Mutations/useRegisterUserMutate";
 import { UserContext } from "../../UserContext";
 import Button from "../Form/Button/index";
 import Input from "../Form/Input/index";
@@ -14,16 +13,16 @@ const LoginRegister = () => {
   const password = useForm("password");
 
   const { loginUser } = React.useContext(UserContext);
-  const { request, loading, error } = useFetch();
+  const { loading, error, post } = useRegisterUserMutate({
+    username: username.value,
+    email: email.value,
+    password: password.value,
+  });
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const { url, options } = USER_POST({
-      username: username.value,
-      email: email.value,
-      password: password.value,
-    });
-    const { response } = await request(url, options);
+
+    const { response } = await post();
     if (response.ok) loginUser(username.value, password.value);
   }
 

@@ -14,6 +14,7 @@ const PhotoComments = (props) => {
 
   function handleSendComment(comment) {
     setComments([...comments, comment]);
+    console.log(comments);
   }
 
   return (

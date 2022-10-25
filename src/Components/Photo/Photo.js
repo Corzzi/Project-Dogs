@@ -1,20 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { PHOTO } from "../../api";
 import Error from "../../Helper/Error/index";
 import Head from "../../Helper/Head/index";
 import Loading from "../../Helper/Loading/index";
-import useFetch from "../../Hooks/useFetch";
+import { useShowPhotoQuery } from "../../Queries/useShowPhotoQuery";
 import PhotoContent from "../PhotoContent/index";
 
 const Photo = () => {
   const { id } = useParams();
-  const { data, error, request } = useFetch();
 
-  React.useEffect(() => {
-    const { url } = PHOTO(id);
-    request(url);
-  }, [id, request]);
+  const { data, error } = useShowPhotoQuery(id);
 
   if (error) return <Error error={error} />;
   if (!data) return <Loading />;

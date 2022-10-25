@@ -8,6 +8,7 @@ import styles from "./PhotoContent.module.css";
 const PhotoContent = ({ data, single }) => {
   const user = React.useContext(UserContext);
   const { photo, comments } = data;
+  console.log(comments);
 
   return (
     <div className={`${styles.photo} ${single ? styles.single : ""}`}>

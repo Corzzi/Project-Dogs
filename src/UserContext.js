@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { TOKEN_POST, TOKEN_VALIDATE_TOKEN } from "./api";
 import apiFetch from "./Utils/apiFetch";
 
 export const UserContext = React.createContext();
@@ -24,9 +23,7 @@ export const UserStorage = ({ children }) => {
     const response = await apiFetch(`api/user`, {
       authorized: true,
     });
-    console.log(response);
     const json = await response.json();
-    console.log(json);
     setData(json);
     setLogin(true);
   }
@@ -35,8 +32,11 @@ export const UserStorage = ({ children }) => {
     try {
       setError(null);
       setLoading(true);
-      const { url, options } = TOKEN_POST({ username, password });
-      const response = await fetch(url, options);
+      const response = await apiFetch("jwt-auth/v1/token", {
+        method: "POST",
+        authorized: false,
+        body: { username, password },
+      });
       if (!response.ok) throw new Error(`Erro: ${response.statusText}`);
       const { token } = await response.json();
       window.localStorage.setItem("token", token);
@@ -56,8 +56,9 @@ export const UserStorage = ({ children }) => {
         try {
           setError(null);
           setLoading(true);
-          const { url, options } = TOKEN_VALIDATE_TOKEN(token);
-          const response = await fetch(url, options);
+          const response = await apiFetch("jwt-auth/v1/token/validate", {
+            method: "POST",
+          });
           if (!response.ok) throw new Error("Token inválido");
           await getUser();
         } catch (err) {

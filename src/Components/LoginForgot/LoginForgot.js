@@ -1,25 +1,22 @@
 import React from "react";
-import { FORGOT_PASSWORD } from "../../api";
 import Error from "../../Helper/Error/index";
 import Head from "../../Helper/Head/index";
-import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
+import { useForgotPasswordMutate } from "../../Mutations/useForgotPasswordMutate";
 import Button from "../Form/Button/index";
 import Input from "../Form/Input/index";
 
 const LoginForgot = () => {
   const login = useForm();
-  const { data, loading, error, request } = useFetch();
+  const { data, loading, error, post } = useForgotPasswordMutate({
+    login: login.value,
+    url: window.location.href.replace("forgot", "reset"),
+  });
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const { url, options } = FORGOT_PASSWORD({
-      login: login.value,
-      url: window.location.href.replace("forgot", "reset"),
-    });
-    const { json } = await request(url, options);
-    console.log(json);
+    await post();
   }
 
   return (
