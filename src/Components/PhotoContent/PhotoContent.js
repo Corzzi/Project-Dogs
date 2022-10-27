@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Image from "../../Helper/Image/index";
+import Image from "../../Helper/Image";
 import { UserContext } from "../../UserContext";
-import PhotoComments from "../PhotoComments/index";
-import PhotoDelete from "../PhotoDelete/index";
+import PhotoComments from "../PhotoComments";
+import PhotoDelete from "../PhotoDelete";
 import styles from "./PhotoContent.module.css";
 const PhotoContent = ({ data, single }) => {
   const user = React.useContext(UserContext);

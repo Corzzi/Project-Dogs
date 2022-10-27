@@ -1,9 +1,9 @@
 import React from "react";
-import Error from "../../Helper/Error/index";
-import Loading from "../../Helper/Loading/index";
+import Error from "../../Helper/Error";
+import Loading from "../../Helper/Loading";
 import { usePhotosQuery } from "../../Queries/usePhotosQuery";
 import { PAGE_SIZE } from "../../Utils/constants";
-import FeedPhotosItem from "../FeedPhotosItem/index";
+import FeedPhotosItem from "../FeedPhotosItem";
 import styles from "./FeedPhotos.module.css";
 
 const FeedPhotos = ({ page, user, onClickPhoto, onHasMore }) => {

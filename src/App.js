@@ -1,15 +1,15 @@
+import Footer from "Components/Footer";
+import Header from "Components/Header";
+import ProtectedRoute from "Helper/ProtectedRoute";
+import Home from "Pages/Home";
+import Login from "Pages/Login";
+import NotFound from "Pages/NotFound";
+import Photo from "Pages/Photo";
+import User from "Pages/User";
+import UserProfile from "Pages/UserProfile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { UserStorage } from "UserContext";
 import "./App.css";
-import Footer from "./Components/Footer/index";
-import Header from "./Components/Header/index";
-import Home from "./Components/Home/index";
-import Login from "./Components/Login/index";
-import NotFound from "./Components/NotFound/index";
-import Photo from "./Components/Photo/index";
-import User from "./Components/User/index";
-import UserProfile from "./Components/UserProfile/index";
-import ProtectedRoute from "./Helper/ProtectedRoute";
-import { UserStorage } from "./UserContext";
 
 function App() {
   return (

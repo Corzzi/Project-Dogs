@@ -1,11 +1,11 @@
+import Button from "Components/Button";
+import Input from "Components/Input";
+import Error from "Helper/Error/Error";
+import Head from "Helper/Head/Head";
+import useForm from "Hooks/useForm";
+import { useResetPasswordMutation } from "Mutations/useResetPasswordMutation";
 import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import Error from "../../Helper/Error/Error";
-import Head from "../../Helper/Head/Head";
-import useForm from "../../Hooks/useForm";
-import { useResetPasswordMutation } from "../../Mutations/useResetPasswordMutation";
-import Button from "../Button";
-import Input from "../Input";
 
 const LoginReset = () => {
   const params = useMemo(() => new URLSearchParams(window.location.search), []);

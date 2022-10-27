@@ -1,8 +1,8 @@
 import React from "react";
-import Error from "../../Helper/Error/index";
-import Loading from "../../Helper/Loading/index";
+import Error from "../../Helper/Error";
+import Loading from "../../Helper/Loading";
 import { usePhotoQuery } from "../../Queries/usePhotoQuery";
-import PhotoContent from "../PhotoContent/index";
+import PhotoContent from "../PhotoContent";
 import styles from "./FeedModal.module.css";
 
 const FeedModal = ({ photo, onClose }) => {

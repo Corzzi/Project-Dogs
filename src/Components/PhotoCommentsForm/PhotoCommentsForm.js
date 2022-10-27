@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as Send } from "../../Assets/enviar.svg";
-import Error from "../../Helper/Error/index";
+import Error from "../../Helper/Error";
 import { usePostCommentMutation } from "../../Mutations/usePostCommentMutation";
 import styles from "./PhotoCommentsForm.module.css";
 

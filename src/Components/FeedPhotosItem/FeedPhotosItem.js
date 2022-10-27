@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../../Helper/Image/index";
+import Image from "../../Helper/Image";
 import styles from "./FeedPhotosItem.module.css";
 
 const FeedPhotosItem = ({ photo, onClick }) => {

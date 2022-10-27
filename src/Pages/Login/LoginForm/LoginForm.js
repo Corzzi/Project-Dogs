@@ -1,11 +1,11 @@
+import Button from "Components/Button";
+import Input from "Components/Input";
+import Error from "Helper/Error";
+import Head from "Helper/Head";
+import useForm from "Hooks/useForm";
 import React from "react";
 import { Link } from "react-router-dom";
-import Error from "../../Helper/Error/index";
-import Head from "../../Helper/Head/index";
-import useForm from "../../Hooks/useForm";
-import { UserContext } from "../../UserContext";
-import Button from "../Button/index";
-import Input from "../Input/index";
+import { UserContext } from "UserContext";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {
