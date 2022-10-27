@@ -10,34 +10,37 @@ import UserProfile from "Pages/UserProfile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserStorage } from "UserContext";
 import "./App.css";
+import QueryClientProvider from "./Helper/QueryClientProvider";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <UserStorage>
-          <Header />
-          <main className="AppBody">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="login/*" element={<Login />} />
-              <Route
-                path="my-account/*"
-                element={
-                  <ProtectedRoute>
-                    <User />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="photo/:id" element={<Photo />} />
-              <Route path="profile/:user" element={<UserProfile />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </UserStorage>
-      </BrowserRouter>
-    </div>
+    <QueryClientProvider>
+      <div className="App">
+        <BrowserRouter>
+          <UserStorage>
+            <Header />
+            <main className="AppBody">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="login/*" element={<Login />} />
+                <Route
+                  path="my-account/*"
+                  element={
+                    <ProtectedRoute>
+                      <User />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="photo/:id" element={<Photo />} />
+                <Route path="profile/:user" element={<UserProfile />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </UserStorage>
+        </BrowserRouter>
+      </div>
+    </QueryClientProvider>
   );
 }
 

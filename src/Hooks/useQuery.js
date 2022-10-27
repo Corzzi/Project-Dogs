@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { QueryContext } from "../Helper/QueryClientProvider/QueryClientProvider";
 
 export default function useQuery(key, fetchFn) {
-  const [data, setData] = React.useState(null);
+  const { cache, setCache } = useContext(QueryContext)
+  console.log(cache)
+  const [data, setData] = React.useState(cache[key]);
   const [loading, setLoading] = React.useState(null);
   const [error, setError] = React.useState(null);
 
@@ -21,6 +24,10 @@ export default function useQuery(key, fetchFn) {
       } finally {
         setLoading(false);
         setData(json);
+        setCache({
+          ...cache,
+          [key]: json
+        })
         return { response, json };
       }
     }
