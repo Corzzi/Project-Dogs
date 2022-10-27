@@ -4,8 +4,8 @@ import Head from "../../Helper/Head/index";
 import useForm from "../../Hooks/useForm";
 import { useRegisterUserMutation } from "../../Mutations/useRegisterUserMutation";
 import { UserContext } from "../../UserContext";
-import Button from "../Form/Button/index";
-import Input from "../Form/Input/index";
+import Button from "../Button/index";
+import Input from "../Input/index";
 
 const LoginRegister = () => {
   const username = useForm();

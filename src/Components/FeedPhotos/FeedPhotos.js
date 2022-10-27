@@ -7,9 +7,7 @@ import FeedPhotosItem from "../FeedPhotosItem/index";
 import styles from "./FeedPhotos.module.css";
 
 const FeedPhotos = ({ page, user, onClickPhoto, onHasMore }) => {
-  const a = usePhotosQuery({ page, user });
-  const { data, error } = a;
-  // Vem da própria api?
+  const { data, error } = usePhotosQuery({ page, user });
 
   React.useEffect(() => {
     if (data && data.length < PAGE_SIZE) {

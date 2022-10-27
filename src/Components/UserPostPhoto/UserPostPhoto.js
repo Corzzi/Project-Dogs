@@ -4,8 +4,8 @@ import Error from "../../Helper/Error/Error";
 import Head from "../../Helper/Head/Head";
 import useForm from "../../Hooks/useForm";
 import { usePostPhotoMutation } from "../../Mutations/usePostPhotoMutation";
-import Button from "../Form/Button";
-import Input from "../Form/Input";
+import Button from "../Button";
+import Input from "../Input";
 import styles from "./UserPostPhoto.module.css";
 
 const UserPostPhoto = () => {

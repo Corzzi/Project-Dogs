@@ -7,7 +7,8 @@ export function usePostPhotoMutation(formData) {
       method: "POST",
       authorized: true,
       body: formData,
-      noCache: true
+      noCache: true,
+      json: false
     })
   );
 }

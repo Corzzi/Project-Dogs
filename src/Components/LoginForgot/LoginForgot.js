@@ -3,8 +3,8 @@ import Error from "../../Helper/Error/index";
 import Head from "../../Helper/Head/index";
 import useForm from "../../Hooks/useForm";
 import useForgotPasswordMutation from "../../Mutations/useForgotPasswordMutation";
-import Button from "../Form/Button/index";
-import Input from "../Form/Input/index";
+import Button from "../Button/index";
+import Input from "../Input/index";
 
 const LoginForgot = () => {
   const login = useForm();

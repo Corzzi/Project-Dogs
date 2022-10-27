@@ -4,25 +4,25 @@ const defaultOptions = {
   method: "GET",
   authorized: true,
   noCache: false,
-  body: false,
-  content: true,
+  body: null,
+  json: true,
 };
 
 export default function apiFetch(url = API_URL, options = defaultOptions) {
-  const { method, authorized, noCache, body, content } = {
+  const { method, authorized, noCache, body, json } = {
     ...defaultOptions,
     ...options,
   };
 
   return fetch(API_URL + url, {
-    ...(method ? { method: method } : {}),
+    method,
     ...(noCache
       ? {
           cache: "no-store",
         }
       : {}),
     headers: {
-      ...(content ? { "Content-Type": "application/json" } : {}),
+      ...(json ? { "Content-Type": "application/json" } : {}),
       ...(authorized
         ? {
             Authorization: "Bearer " + window.localStorage.getItem("token"),
