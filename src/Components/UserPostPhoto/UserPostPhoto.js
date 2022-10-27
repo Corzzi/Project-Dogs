@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Error from "../../Helper/Error/Error";
 import Head from "../../Helper/Head/Head";
 import useForm from "../../Hooks/useForm";
-import { usePostPhotoMutate } from "../../Mutations/usePostPhotoMutate";
+import { usePostPhotoMutation } from "../../Mutations/usePostPhotoMutation";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
 import styles from "./UserPostPhoto.module.css";
@@ -15,7 +15,7 @@ const UserPostPhoto = () => {
   const age = useForm("number");
   const [img, setImg] = React.useState({});
   const navigate = useNavigate();
-  const { data, loading, error, post } = usePostPhotoMutate(formData);
+  const { data, loading, error, mutate } = usePostPhotoMutation(formData);
 
   React.useEffect(() => {
     if (data) navigate("/my-account");
@@ -29,7 +29,7 @@ const UserPostPhoto = () => {
     formData.append("peso", weight.value);
     formData.append("idade", age.value);
 
-    post();
+    mutate();
   }
 
   function handleImgChange({ target }) {

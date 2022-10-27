@@ -1,11 +1,11 @@
 import useMutation from "../Hooks/useMutation";
 import apiFetch from "../Utils/apiFetch";
 
-export function useForgotPasswordMutate(body) {
+export function usePostCommentMutation(id, body) {
   return useMutation(() =>
-    apiFetch("api/password/lost", {
+    apiFetch(`api/comment/${id}`, {
       method: "POST",
-      authorized: false,
+      authorized: true,
       body: body,
     })
   );

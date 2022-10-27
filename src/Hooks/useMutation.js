@@ -5,7 +5,7 @@ export default function useMutation(fetchFn) {
   const [loading, setLoading] = React.useState(null);
   const [error, setError] = React.useState(null);
 
-  async function post() {
+  async function mutate() {
     let response;
     let json;
     try {
@@ -24,5 +24,5 @@ export default function useMutation(fetchFn) {
     }
   }
 
-  return { data, loading, error, post };
+  return { data, loading, error, mutate };
 }

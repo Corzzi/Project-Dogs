@@ -2,7 +2,7 @@ import React from "react";
 import Error from "../../Helper/Error/index";
 import Head from "../../Helper/Head/index";
 import useForm from "../../Hooks/useForm";
-import { useRegisterUserMutate } from "../../Mutations/useRegisterUserMutate";
+import { useRegisterUserMutation } from "../../Mutations/useRegisterUserMutation";
 import { UserContext } from "../../UserContext";
 import Button from "../Form/Button/index";
 import Input from "../Form/Input/index";
@@ -13,7 +13,7 @@ const LoginRegister = () => {
   const password = useForm("password");
 
   const { loginUser } = React.useContext(UserContext);
-  const { loading, error, post } = useRegisterUserMutate({
+  const { loading, error, mutate } = useRegisterUserMutation({
     username: username.value,
     email: email.value,
     password: password.value,
@@ -22,7 +22,7 @@ const LoginRegister = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const { response } = await post();
+    const { response } = await mutate();
     if (response.ok) loginUser(username.value, password.value);
   }
 

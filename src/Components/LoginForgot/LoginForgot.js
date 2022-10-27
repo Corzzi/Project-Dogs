@@ -2,13 +2,13 @@ import React from "react";
 import Error from "../../Helper/Error/index";
 import Head from "../../Helper/Head/index";
 import useForm from "../../Hooks/useForm";
-import { useForgotPasswordMutate } from "../../Mutations/useForgotPasswordMutate";
+import useForgotPasswordMutation from "../../Mutations/useForgotPasswordMutation";
 import Button from "../Form/Button/index";
 import Input from "../Form/Input/index";
 
 const LoginForgot = () => {
   const login = useForm();
-  const { data, loading, error, post } = useForgotPasswordMutate({
+  const { data, loading, error, mutate } = useForgotPasswordMutation({
     login: login.value,
     url: window.location.href.replace("forgot", "reset"),
   });
@@ -16,7 +16,7 @@ const LoginForgot = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    await post();
+    await mutate();
   }
 
   return (

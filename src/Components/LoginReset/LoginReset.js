@@ -4,14 +4,14 @@ import Error from "../../Helper/Error/Error";
 import Head from "../../Helper/Head/Head";
 import useForm from "../../Hooks/useForm";
 import useSearchParams from "../../Hooks/useSearchParams";
-import { useResetPasswordMutate } from "../../Mutations/useResetPasswordMutate";
+import { useResetPasswordMutation } from "../../Mutations/useResetPasswordMutation";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
 
 const LoginReset = () => {
   const { login, key } = useSearchParams();
   const password = useForm("password");
-  const { loading, error, post } = useResetPasswordMutate({
+  const { loading, error, mutate } = useResetPasswordMutation({
     login,
     key,
     password: password.value,
@@ -21,7 +21,7 @@ const LoginReset = () => {
   async function handleSubmit(event) {
     event.preventDefault();
     if (password.validate()) {
-      const { response } = await post();
+      const { response } = await mutate();
       if (response.ok) navigate("/login");
     }
   }

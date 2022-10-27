@@ -1,12 +1,13 @@
 import useMutation from "../Hooks/useMutation";
 import apiFetch from "../Utils/apiFetch";
 
-export function useResetPasswordMutate(body) {
+export function usePostPhotoMutation(formData) {
   return useMutation(() =>
-    apiFetch(`api/password/reset`, {
+    apiFetch("api/photo", {
       method: "POST",
-      authorized: false,
-      body: body,
+      authorized: true,
+      body: formData,
+      noCache: true
     })
   );
 }

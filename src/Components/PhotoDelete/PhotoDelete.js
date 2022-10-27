@@ -1,15 +1,15 @@
 import React from "react";
-import { useDeletePhotoMutate } from "../../Mutations/useDeletePhotoMutate";
+import { useDeletePhotoMutation } from "../../Mutations/useDeletePhotoMutation";
 import styles from "./PhotoDelete.module.css";
 
 const PhotoDelete = ({ id }) => {
-  const { loading, post } = useDeletePhotoMutate(id);
+  const { loading, mutate } = useDeletePhotoMutation(id);
 
   async function handleClick() {
     const confirm = window.confirm("Deseja realmente deletar a publicação");
 
     if (confirm) {
-      const { response } = await post();
+      const { response } = await mutate();
       if (response.ok) window.location.reload();
     }
   }

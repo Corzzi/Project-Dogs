@@ -1,16 +1,16 @@
 import React from "react";
 import { ReactComponent as Send } from "../../Assets/enviar.svg";
 import Error from "../../Helper/Error/index";
-import { usePostCommentMutate } from "../../Mutations/usePostCommentMutate";
+import { usePostCommentMutation } from "../../Mutations/usePostCommentMutation";
 import styles from "./PhotoCommentsForm.module.css";
 
 const PhotoCommentsForm = ({ id, onSendComment, single }) => {
   const [comment, setComment] = React.useState("");
-  const { error, post } = usePostCommentMutate(id, { comment });
+  const { error, mutate } = usePostCommentMutation(id, { comment });
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const { response, json } = await post();
+    const { response, json } = await mutate();
     if (response.ok) {
       setComment("");
       onSendComment(json); // Tarefa 2

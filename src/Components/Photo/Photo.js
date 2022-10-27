@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import Error from "../../Helper/Error/index";
 import Head from "../../Helper/Head/index";
 import Loading from "../../Helper/Loading/index";
-import { useShowPhotoQuery } from "../../Queries/useShowPhotoQuery";
+import { usePhotoQuery } from "../../Queries/usePhotoQuery";
 import PhotoContent from "../PhotoContent/index";
 
 const Photo = () => {
   const { id } = useParams();
 
-  const { data, error } = useShowPhotoQuery(id);
+  const { data, error } = usePhotoQuery({ id });
 
   if (error) return <Error error={error} />;
   if (!data) return <Loading />;

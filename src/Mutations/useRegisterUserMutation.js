@@ -1,12 +1,12 @@
 import useMutation from "../Hooks/useMutation";
 import apiFetch from "../Utils/apiFetch";
 
-export function usePostPhotoMutate(formData) {
+export function useRegisterUserMutation(body) {
   return useMutation(() =>
-    apiFetch("api/photo", {
+    apiFetch(`api/user`, {
       method: "POST",
-      authorized: true,
-      body: formData,
+      authorized: false,
+      body: body,
     })
   );
 }

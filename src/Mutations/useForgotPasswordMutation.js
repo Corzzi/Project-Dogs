@@ -1,9 +1,9 @@
 import useMutation from "../Hooks/useMutation";
 import apiFetch from "../Utils/apiFetch";
 
-export function useRegisterUserMutate(body) {
+export default function useForgotPasswordMutation(body) {
   return useMutation(() =>
-    apiFetch(`api/user`, {
+    apiFetch("api/password/lost", {
       method: "POST",
       authorized: false,
       body: body,
